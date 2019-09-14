@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body bgcolor="#919775">
+<div align="center" style=" height: 250px; margin-bottom: 10px;"> <img src="/static/img/shw.jpg" width="800" height="200"> </div>
+<h1 align="center", style="color: red" >User Transactions</h1>
+<div align="right" style="color: red">user name:{{request.user}}</div>
+<div align="right" style=" height: 22px; margin-bottom: 10px;"> <a href="/userlogout/">Logout</a></div>
+<!--<div align="center" style=" height: 22px; margin-bottom: 10px;">{{data}}</div> -->
+
+<table  BORDER=10 BORDERCOLOR=RED, align="center" width="600">
+<tr>
+  <th>username</th>
+  <th>amount</th>
+</tr>
+{% for n in data %}
+<tr>
+  <td height="100" border="1" align="center">{{ n.user__username}}</td>
+  <td height="100" border="1" align="center">{{ n.amount__sum}}</td>
+</tr>
+{% endfor %}</table>
+
+<!--{{n.user__username}}
+{{n.amount__sum}}-->
+
+</body>
+</html>

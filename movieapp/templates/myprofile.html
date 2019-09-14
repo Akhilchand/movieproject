@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#919775">
+<div align="right" style="color: green">user name:{{request.user}}</div>
+<div align="right" style=" height: 22px; margin-bottom: 10px;"> <a href="/userlogout/">Logout</a></div>
+<table bgcolor="#FF00FF" border="2", align="center" width="600">
+<tr>
+  <th>Name</th>
+  <th>first_name</th>
+  <th>last_name</th>
+  <th>address</th>
+  <th>mobile</th>
+  <th>mail</th>
+  <th>Amount_in your acount</th>
+</tr>
+</tr>
+{% for d in info %}
+<tr>
+  <td height="100" border="1" align="center"> {{ d.name }}</td>
+  <td height="100" border="1" align="center">{{ d.first_name }}</td>
+  <td height="100" border="1" align="center" >{{ d.last_name }}</td>
+  <td height="100" border="1" align="center" >{{ d.address }}</td>
+  <td height="100" border="1" align="center" >{{ d.mobile }}</td>
+  <td height="100" border="1" align="center" >{{ d.mail }}</td>
+  <td height="100" border="1" align="center" >{{data.amount__sum}}</td>
+
+</tr>
+{% endfor %} 
+</table>
+
+
+</body>
+</html>

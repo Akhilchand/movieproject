@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ </head>
+<body bgcolor="#919775">
+<div align="center" style=" height: 22px; margin-bottom: 10px;">{{data}}</div>
+<div align="center" style=" height: 22px; margin-bottom: 10px;">{{log}}</div>
+<div align="center" style=" height: 22px; margin-bottom: 10px;"><h1 style="color: red">Please Login To Movie-App</h1></div><br><br>
+<div align="center" style=" height: 22px; margin-bottom: 10px;"> <img src="/static/img/cmg.jpg" width="500" height="500"> </div>
+
+<div>
+<form action="/login/" method="post">
+{% csrf_token %}
+
+  <h style="color: yellow"> username:<br>
+  <input type="text" name="username" value="">
+  <br></h>
+  <h style="color: yellow">password:<br>
+  <input type=password name="password"></h>
+  <br><br>
+  <input type="submit" value="login">
+  <a style="color:#7FFF00" href="/registration/">register</a>
+</form>
+</div>
+<p style="color:#00FFFF">click the "login" button.</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+{% if log  %}
+{{log}}
+{%else%}
+<p>no data available</p>
+{%endif%} 

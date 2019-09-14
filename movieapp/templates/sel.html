@@ -1,0 +1,150 @@
+<html>
+<body bgcolor="#919775">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div align="right" style="color: red">user_name:{{request.user}}</div>
+<div align="right" style=" height: 22px; top: 10px;"> <a href="/userlogout/">Logout</a></div>
+<div align="left" style=" height: 22px; margin-bottom: 10px;"> <a href="/myprofile/">View My Profile</a></div>
+<div align="center" style=" height: 200px; margin-bottom: 10px;"><img src="/static/img/seat.jpg" width="500" height="250"> </div>
+
+
+
+<style>
+
+.plane {
+  margin: 20px auto;
+  width: 400px;
+}
+
+.cockpit {
+    /* height: 250px; */
+    width: 400px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: #27d612
+    /* border-bottom: 5px solid #d8d8d8; */
+
+}
+
+ol {
+  list-style :none;
+  padding: 0;
+  margin: 0;
+}
+.seats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;  
+}
+
+.seat {
+  width: 50px;
+  height: 30px;
+  background: #af6c6c;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  }
+ .seat {
+  display: flex;
+  flex: 0 0 14.28571428571429%;
+  padding: 5px;
+  position: relative;  
+  &:nth-child(3) {
+    margin-right: 14.28571428571429%;
+  }
+}
+
+
+
+</style>
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("input[name='seat']").change(function () {
+        var maxAllowed = parseInt("{{req}}");
+        var cnt = $("input[name='seat']:checked").length;
+        if (cnt > maxAllowed) {
+            $(this).prop("checked", "");
+            alert('You can select maximum ' + maxAllowed + ' seats!!');
+        }
+    });
+});
+</script>
+
+<div class="plane">
+  <div class="cockpit">
+    <h1 style="color: white" >Please select your seat</h1>
+  </div>
+
+
+  <ol>
+   <form method="post", action="/selected/?id={{data.bookingid}}">
+   {% csrf_token %}
+
+   <ol class="seats" type="A">
+      {% for s in s.r.A  %}
+      {% if s in data.t%}
+          <li class="seat">
+          <input type="checkbox" name="seat" value= "{{s}}" id="{{s}}"/>
+          <label for="{{s}}">{{s}}</label>
+          </li>
+           {% else %}
+            <li class="seat">
+              <input type="checkbox" name="seat" value= "{{s}}" disabled id="{{s}}"/>
+              <label for="{{s}}">{{s}}</label>
+            </li>
+          <li>
+          {% endif %}
+          <li>
+          {% endfor %}
+      </li>
+      </ol>
+      <ol class="seats" type="B">
+      {% for s in s.r.B  %}
+      {% if s in data.t%}
+          <li class="seat">
+          <input type="checkbox" name="seat" value= "{{s}}" id="{{s}}"/>
+          <label for="{{s}}">{{s}}</label>
+          </li>
+           {% else %}
+            <li class="seat">
+              <input type="checkbox" name="seat" value= "{{s}}" disabled id="{{s}}"/>
+              <label for="{{s}}">{{s}}</label>
+            </li>
+          <li>
+          {% endif %}
+          <li>
+          {% endfor %}
+      </li>
+      </ol>
+     <!-- <ol class="seats" type="A">
+      {% for s in s.t  %}
+      {% if s.seat_status == True %}
+          <li class="seat">
+          <input type="checkbox" name="seat" value= "{{s.seat}}" id="{{s.seat}}"/>
+          <label for="{{s.seat}}">{{s.seat}}</label>
+          </li>
+           {% else %}
+            <li class="seat">
+              <input type="checkbox" name="seat" value= "{{s.seat}}" disabled id="{{s.seat}}"/>
+              <label for="{{s.seat}}">{{s.seat}}</label>
+            </li>
+          <li>
+          {% endif %}
+          <li>
+          {% endfor %}
+      </li>
+      </ol>
+      </ol>
+      </li>-->
+      <br><br>
+<input type="submit" value="proceed">
+    </form>
+  </ol>
+  <div class="exit">
+
+  </div>

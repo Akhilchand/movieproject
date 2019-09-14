@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#E6E6FA">
+<div align="center" style=" height: 22px; margin-bottom: 10px;">{{data}}</div>
+<div>
+  <form action="/registration/" method="post">
+  {% csrf_token %}
+
+    username:<br>
+    <input type="text" name="username" value="username">
+    <br>
+    password:<br>
+    <input type=password name="password">
+    <br>
+    email:<br>
+    <input type="text" name="email" value="">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form> 
+</div>
+
+</body>
+
+
+
+</html>

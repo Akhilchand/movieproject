@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOVIE_APP</title>
+  <div align="center" style=" height: 150px; margin-bottom: 10px;"> <img src="/static/img/tkt.jpg" width="800" height="300"> </div>
+  <br><br>
+	<body bgcolor="#919775">
+	<div align="right" style="color: red">user name:{{request.user}}</div>
+	<div align="right" style=" height: 22px; margin-bottom: 10px;"> <a href="/userlogout/">Logout</a></div>
+	<h1 align="center", style="color: red" >Welcome to BOOKING</h1>
+  <h3 align="center", style="color: white" >Our Movies </h3>
+  <div h align="center", style="color: white" ><h3>Select A Movie </h3> </div>
+  
+
+
+<table  bgcolor="#00FF7F" border="2", align="center" width="600">
+<tr>
+  <th>Movie</th>
+  <th>show</th>
+  <th>timigs</th>
+  <!--<th>seats available</th>-->
+</tr>
+{% for e in data %}
+<tr>
+  <td style="color: red" height="100" border="1" align="center"><a style="color: red" href="/book-seat/?id={{e.id}}">{{ e.movie.movie_name }}</td>
+  <td style="color: red" height="100" border="1" align="center"><a style="color: red" href="/book-seat/?id={{e.id}}">{{ e.show_details }}</td>
+  <td style="color: red" height="100" border="1" align="center"><a style="color: red" href="/book-seat/?id={{e.id}}">{{ e.timings }}</td>
+  <!--<td height="100" border="1" align="center"><a href="/seat-book/?id={{e.id}}"> {{e.seat_available}}</td>-->
+  <!--<td height="100" border="1" align="center"><a href="/book-seat/?id={{e.id}}"> {{e.seat_available}}</td>-->
+</tr>
+{% endfor %} 
+</table>
+</body>
+</html>

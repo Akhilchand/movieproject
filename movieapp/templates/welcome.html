@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOVIE_APP</title>
+	<body bgcolor="#919775">
+	<div align="right" style="color: red">user name:{{request.user}}</div>
+	<div align="right" style=" height: 22px; margin-bottom: 10px;"> <a href="/userlogout/">Logout</a></div>
+	<div align="left" style=" height: 22px; margin-bottom: 10px;"> <a href="/myprofile/">View My Profile</a></div>
+	<h1 align="center", style="color: red" >Welcome to Movie app</h1>
+	<div align="center" style=" height: 50px; margin-bottom: 10px;"> <img src="/static/img/scrn.jpg" width="800" height="200"> </div>
+	<div align="center" style=" height: 22px; margin-bottom: 10px;">{{respo}}</div>
+	<div align="right" style="color: red; height: 22px; margin-bottom: 10px;"> <a style="color: white"; href="/movie-details/">DETAILS</a></div>
+<form method="post", action="/search/">
+{% csrf_token %}
+	<input placeholder="Enter movie name" type="text" name="movie" >
+	<input type="submit" value="search">
+</form>
+
+<h1 align="center", style="color: yellow" >Our movies </h1>
+
+<table style="width:80%;background-color:#A5FD5D"; align="center" width="600">
+<tr>
+  <th>Movie_name</th>
+  <th>Category</th>
+  <th>Release_date</th>
+</tr>
+{% for e in data %}
+<tr>
+  <td height="100" border="1" align="center"> <a href="/movie-data/?id={{e.id}}" class="download_link">{{ e.movie_name }}</td>
+  <td height="100" border="1" align="center">{{ e.category }}</td>
+  <td height="100" border="1" align="center" >{{ e.release_date }}</td>
+</tr>
+{% endfor %} 
+</table>
+	
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#E6E6FA">
+<div align="right" style="color: green">user name:{{request.user}}</div>
+<form method="post" action="/seat-book/?id={{data.bookingid}}">
+{% csrf_token %}
+	<input placeholder="Enter no.of seats" type="search" name="no" >
+	<input type="submit" value="search">
+</form>
+<div align="center" style=" height: 22px; margin-bottom: 10px;">{{data}}</div>
+<div align="center" style=" height: 22px; margin-bottom: 10px;">{{res}}</div>
+</body>
+</html>

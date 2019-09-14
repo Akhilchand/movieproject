@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOVIE DETAILS</title>
+	<body bgcolor="#919775">
+	<div align="right" style="color: red">user name:{{request.user}}</div>
+	<div align="right" style=" height: 22px; margin-bottom: 10px;"> <a href="/userlogout/">Logout</a></div>
+  <div align="left" style=" height: 22px; margin-bottom: 10px;"> <a href="/myprofile/">View My Profile</a></div>
+	<div align="center" style=" height:200px; margin-bottom: 10px;"> <img src="/static/img/movie.jpg" width="800" height="200"> </div>
+  <h1 align="center", style="color: red" >Welcome to BoX-OFICE</h1>
+  <br><br>
+<form method="post", action="/movie-data/">
+{% csrf_token %}
+	<input placeholder="Enter search option" type="search" name="search" >
+	<input type="submit" value="search">
+</form>
+
+<h3 align="center", style="color: green" >Movie Details </h3>
+
+<table bgcolor="gold" border="2", align="center" width="600">
+<tr>
+  <th>Movie</th>
+  <th>hero</th>
+  <th>heroine</th>
+  <th>director</th>
+  <th>musicdirector</th>
+  <th>producer</th>
+  <th>songs</th>
+</tr>
+</tr>
+{% for e in data %}
+<tr>
+  <td height="100" border="1" align="center"> {{ e.movie.movie_name }}</td>
+  <td height="100" border="1" align="center">{{ e.hero }}</td>
+  <td height="100" border="1" align="center" >{{ e.heroine }}</td>
+  <td height="100" border="1" align="center" >{{ e.director }}</td>
+  <td height="100" border="1" align="center" >{{ e.musicdirector }}</td>
+  <td height="100" border="1" align="center" >{{ e.producer }}</td>
+  {% for s in songs %}
+  <td height="100" border="1" align="center" >
+  <ul>
+  <li>{{s.track}}</li>
+  {% endfor %}
+  </ul> 
+
+  	</td>
+
+</tr>
+{% endfor %} 
+</table>
+
+<div align="right" style="color: green"><a href="/show/">BOOK NOW</td></a>
+</html>

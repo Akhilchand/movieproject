@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | Movie-app site admin {% endblock %}
+{% block extrastyle %}
+<style>
+#header{ background-color: #249227; border-bottom: solid 3px #d42b2b; }
+
+#branding h1{ color: #fff; }
+.module h2, .module caption, .inline-group h2 { background:#38d627 url(/admin_media/img/admin/nav-bg.gif) bottom left repeat-x; color: #333940; }
+a.section:link, a.section:visited { color: #363da0; }
+</style>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Movie-App administration</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

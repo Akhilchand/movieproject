@@ -1,0 +1,76 @@
+<form method="post", action="/selection/?id={{data.bookingid}}">
+    {% for s in seat %}
+        <tr><input type="checkbox" value="{{s.seats.seat_num}}" name="add2orgs" onclick="disablediv({{s.seats.seat_num}},this)" /> {{s.seats.seat_num}}</tr><br/>
+        {%endfor%}
+    {%%endfor}
+<input type="submit" value="Add">
+</form>
+
+<script type="text/javascript">
+    function disablediv(id,nme)
+    {
+        var eleid=nme.id;
+        if(document.getElementById(eleid).checked){
+          //what will be code to enable all field in div? 
+          document.getElementById(id).style.display="block";
+
+
+        }else{
+              //what will be code to disble all field in div   
+             document.getElementById(id).style.display="none";
+
+        }
+
+    }
+
+
+function disablediv(divid,thiss)
+{
+    var cid=thiss.id;
+    if(document.getElementById(cid).checked){
+        var nodes = document.getElementById(divid).getElementsByTagName('*');
+        for(var i = 0; i < nodes.length; i++){
+            nodes[i].disabled = false;
+        }
+        document.getElementById(divid).style.display="block";
+
+    }else{
+        var nodes = document.getElementById(divid).getElementsByTagName('*');
+        for(var i = 0; i < nodes.length; i++){
+            nodes[i].disabled = true;
+            nodes[i].checked = false;
+        }
+        document.getElementById(divid).style.display="none";
+
+    }
+
+}
+
+
+function disablediv(divid,thiss)
+{
+    var cid=thiss.id;
+    if(document.getElementById(cid).checked){
+        var nodes = document.getElementById(divid).getElementsByTagName('*');
+        for(var i = 0; i < nodes.length; i++){
+            nodes[i].disabled = false;
+        }
+        document.getElementById(divid).style.display="block";
+
+    }else{
+        var nodes = document.getElementById(divid).getElementsByTagName('*');
+        for(var i = 0; i < nodes.length; i++){
+            nodes[i].disabled = true;
+            nodes[i].checked = false;
+        }
+        document.getElementById(divid).style.display="none";
+
+    }
+
+}
+
+{% for item in names %}
+
+    <input type="checkbox" name="names" value={{ item.id }} >{{ item.name }}
+
+{% endfor %}

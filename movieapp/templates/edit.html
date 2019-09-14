@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#919775">
+
+<div align="center" style=" height: 22px; margin-bottom: 10px;">{{res}}</div>
+<div>
+<form action="/user-details/" method="post">
+{% csrf_token %}
+
+  name:<br>
+    <input type="text" name="name">
+    <br>
+  First Name:<br>
+  <input type="text" name="firstname">
+  <br>
+  Last Name:<br>
+  <input type="text" name="lastname">
+  <br>
+  adress:<br>
+  <input type="text" name="address">
+  <br>
+  mobile:<br>
+  <input type="text" name="mobile">
+  <br>
+  Email:<br>
+  <input type="text" name="email">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+</div>
+<div>
+<p>click the "Submit" button.</p>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#E6E6FA">
+<div align="center" style=" height: 10px; margin-bottom: 10px;">{{data}}</div>
+<div align="center" style="color: red; height: 10px; margin-bottom: 10px;">BOOK YOUR SEAT</div>
+<div align="right" style="color: green">user name:{{request.user}}</div>
+<div align="right" style=" height: 22px; margin-bottom: 10px;"> <a href="/userlogout/">Logout</a></div>
+<div align="left" style=" height: 22px; margin-bottom: 10px;"> <a href="/myprofile/">View My Profile</a></div>
+<div align="center" style=" height: 200px; margin-bottom: 10px;"><img src="/static/img/cne.jpg" width="500" height="500"> </div>
+<form method="post" action="/book-seat/?id={{data.bookingid}}">
+{% csrf_token %}
+<p style="color: green"> PLEASE ENTER NUMBER OF SEATS</p>
+	<input placeholder="Enter no.of seats" type="search" name="no" >
+	<input type="submit" value="search">
+</form>
+</body>
+</html>
